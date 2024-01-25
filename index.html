@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>futsal list and Booking</title>
+    <title>Futsal list and Booking</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -12,15 +12,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-        <header>
-            <div class="navbar">
-                <div class="title">
+    <header>
+        <div class="navbar">
+            <div class="title">
+                <a href="index.html" style="text-decoration: none;">
                     <h1>BOOK MY <span>GAME</span></h1>
+                </a>
+            </div>
+            <div class="username">
+                <p onclick="welcome()">Welcome, Abishek Shahi <i class="fa-solid fa-caret-down"></i></p>
+                <div class="underline"></div>
+                <div class="menubar" onclick="(function() { 
+                                                                                        var x = document.querySelector('.list');
+                                                                                        setTimeout(() => {
+                                                                                            if (x.classList.contains('listhide')) {
+                                                                                                setTimeout(() => {
+                                                                                                    x.classList.toggle('listshow');
+                                                                                                }, 0);
+                                                                                            }
+                                                                                            x.classList.toggle('listshow');
+                                                                                            x.classList.toggle('listhide');
+                                                                                        }, 0);
+                                                                                    })()">
+                    <i class="fa-solid fa-bars"></i>
                 </div>
-                <div class="username">
-                    <p onclick="welcome()">Welcome, Abishek Shahi <i class="fa-solid fa-caret-down"></i></p>
-                    <div class="underline"></div>
-                    <div class="menubar" onclick="menubar()"><i class="fa-solid fa-bars"></i></div>
                 </div>
                 <div class="list">
                     <p>Profile</p>
@@ -28,50 +43,59 @@
                     <p>Load Wallet</p>
                     <p>Logout</p>
                 </div>
-            </div>
-       
-        </header>
-        <div class="container">
-            <div class="city-name">
-                <div class="line"></div>
-                <h2>CHITWAN</h2>
-            </div>
-            <button id="prev-slide" class="slide-button material-symbols-rounded">chevron_left</button>
-            <div class="fustal-box">
-                <div class="fustalvenue" onclick="fustImag()">
+                </div>
+    </header>
+    <div class="container">
+        <div class="city-name">
+            <div class="line"></div>
+            <h2>CHITWAN</h2>
+        </div>
+        <button id="prev-slide" class="slide-button material-symbols-rounded">chevron_left</button>
+        <div class="fustal-box">
+            <div class="fustalvenue" onclick="fustImag()">
+                <div class="fustal-img">
                     <img src="img/kshetrapur fustal.jpeg" alt="">
-                    <h4>Kshetrapur Fustal Arena</h4>
+                </div>
+                <h4>Kshetrapur Fustal Arena</h4>
                 </div>
                 <div class="fustalvenue" onclick="fustImag1()">
+                <div class="fustal-img">
                     <img src="img/gautam chowk fustal.jpg" alt="">
-                    <h4>Chitwan Fustal and Game Zone</h4>
                 </div>
-                <div class="fustalvenue"   onclick="fustImag2()">
+                <h4>Chitwan Fustal and Game Zone</h4>
+                </div>
+            <div class="fustalvenue" onclick="fustImag2()">
+                <div class="fustal-img">
                     <img src="img/parsa fustal.jpg" alt="">
-                     <h4>Parsa Fustal</h4>
                 </div>
-                <div class="fustalvenue"  onclick="fustImag3()">
+                <h4>Parsa Fustal</h4>
+                </div>
+            <div class="fustalvenue" onclick="fustImag3()">
+                <div class="fustal-img">
                     <img src="img/shardapur fustal.jpg" alt="">
-                    <h4>The Sharadpur futsal</h4>
                 </div>
-                <div class="fustalvenue"  onclick="fustImag3()">
+                <h4>The Sharadpur futsal</h4>
+                </div>
+            <div class="fustalvenue" onclick="fustImag3()">
+                <div class="fustal-img">
                     <img src="img/shardapur fustal.jpg" alt="">
-                    <h4>The Sharadpur futsal</h4>
                 </div>
-            </div>
-            <button id="next-slide" class="slide-button material-symbols-rounded">chevron_right</button>
+                <h4>The Sharadpur futsal</h4>
+                </div>
+                </div>
+                <button id="next-slide" class="slide-button material-symbols-rounded">chevron_right</button>
 
-        </div>
-        <div class="f-description">
-            <div class="fdes1">
-                    <div class="fustal-des">
+    </div>
+    <div class="f-description">
+        <div class="fdes1">
+            <div class="fustal-des">
                 <div class="img">
                     <img src="img/kshetrapur fustal.jpeg" alt="">
                 </div>
                 <div class="name-rating">
                     <h4>Kshetrapur Fustal Arena</h4>
-                     <p class="fustal-location">MC9H+R7R, Gautam Chowk, Bharatpur 7</p>
-                     <div class="star">
+                    <p class="fustal-location">MC9H+R7R, Gautam Chowk, Bharatpur 7</p>
+                    <div class="star">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -86,28 +110,28 @@
                     <div class="booking1">
                         <div class="booking-box">
                             <div class="date-head">
-                        <h4>Booking is available only for 3 days.</h4>
-                    </div>
-                        <div class="date">
+                                <h4>Booking is available only for 3 days.</h4>
+                                </div>
+                                <div class="date">
                                 <p>Today</p>
                                 <p>Tomorrow</p>
                                 <p class="after3days"></p>
-                        </div>
-                    </div>
+                            </div>
+                            </div>
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
 
-            <div class="fdes2">
-                    <div class="fustal-des" >
+        <div class="fdes2">
+            <div class="fustal-des">
                 <div class="img">
                     <img src="img/gautam chowk fustal.jpg" alt="">
                 </div>
                 <div class="name-rating">
                     <h4>Chitwan Fustal and Sport Arena</h4>
-                     <p class="fustal-location">MC9H+R7R, Gautam Chowk, Bharatpur 7</p>
-                     <div class="star">
+                    <p class="fustal-location">MC9H+R7R, Gautam Chowk, Bharatpur 7</p>
+                    <div class="star">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -122,28 +146,28 @@
                     <div class="booking2">
                         <div class="booking-box">
                             <div class="date-head">
-                        <h4>Booking is available only for 3 days.</h4>
-                    </div>
-                        <div class="date">
+                                <h4>Booking is available only for 3 days.</h4>
+                                </div>
+                                <div class="date">
                                 <p>Today</p>
                                 <p>Tomorrow</p>
                                 <p class="after3days"></p>
-                        </div>
-                    </div>
+                            </div>
+                            </div>
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
 
-            <div class="fdes3">
-                    <div class="fustal-des">
+        <div class="fdes3">
+            <div class="fustal-des">
                 <div class="img">
                     <img src="img/parsa fustal.jpg" alt="">
                 </div>
                 <div class="name-rating">
                     <h4>Parsa Fustal</h4>
-                     <p class="fustal-location">MC9H+R7R, Gautam Chowk, Bharatpur 7</p>
-                     <div class="star">
+                    <p class="fustal-location">MC9H+R7R, Gautam Chowk, Bharatpur 7</p>
+                    <div class="star">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -158,28 +182,28 @@
                     <div class="booking3">
                         <div class="booking-box">
                             <div class="date-head">
-                        <h4>Booking is available only for 3 days.</h4>
-                    </div>
-                        <div class="date">
+                                <h4>Booking is available only for 3 days.</h4>
+                                </div>
+                                <div class="date">
                                 <p>Today</p>
                                 <p>Tomorrow</p>
                                 <p class="after3days"></p>
-                        </div>
+                            </div>
+                            </div>
                     </div>
-                    </div>
-            </div>
+                </div>
             </div>
         </div>
 
-            <div class="fdes4">
-                    <div class="fustal-des">
+        <div class="fdes4">
+            <div class="fustal-des">
                 <div class="img">
                     <img src="img/shardapur fustal.jpg" alt="">
                 </div>
                 <div class="name-rating">
                     <h4>The Sharadpur futsal</h4>
-                     <p class="fustal-location">MC9H+R7R, Gautam Chowk, Bharatpur 7</p>
-                     <div class="star">
+                    <p class="fustal-location">MC9H+R7R, Gautam Chowk, Bharatpur 7</p>
+                    <div class="star">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -194,23 +218,23 @@
                     <div class="booking4">
                         <div class="booking-box">
                             <div class="date-head">
-                        <h4>Booking is available only for 3 days.</h4>
-                    </div>
-                        <div class="date">
+                                <h4>Booking is available only for 3 days.</h4>
+                                </div>
+                                <div class="date">
                                 <p>Today</p>
                                 <p>Tomorrow</p>
                                 <p class="after3days"></p>
-                        </div>
-                    </div>
+                            </div>
+                            </div>
                     </div>
                 </div>
+            </div>
         </div>
-        </div>
-        </div>
-        <footer>
-            <div class="footpart">
-                    <h2>Copyright © 2023. All rights Reserved.</h2>
-                    <div class="right-side">
+    </div>
+    <footer>
+        <div class="footpart">
+            <h2>Copyright © 2023. All rights Reserved.</h2>
+            <div class="right-side">
                 <div class="footlist">
                     <p>Home</p>
                     <p>About Us</p>
@@ -224,7 +248,7 @@
                     <p>Disclaimer</p>
                 </div>
             </div>
-            </div>
+        </div>
         </footer>
     <script src="script.js"></script>
 </body>

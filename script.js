@@ -2,6 +2,21 @@ const lists = document.querySelector('.list');
 function welcome(){
      lists.classList.toggle('listshow');
 }
+function hideList() {
+    lists.classList.remove('listshow');
+}
+document.addEventListener('click', function (event) {
+    const button = document.querySelector('.username p');
+    if (!button.contains(event.target) && !lists.contains(event.target)) {
+        hideList();
+    }
+});
+document.addEventListener('keydown', function (event) {
+    // Check if the pressed key is the 'esc' key (key code 27)
+    if (event.key === 'Escape') {
+        hideList();
+    }
+});
 function menubar(){
      lists.classList.toggle('listshow');
 }
@@ -54,39 +69,31 @@ const d = new Date();
 
 d.setDate(d.getDate()+2);
 after3days.forEach(item =>{
-    item .innerHTML = d.toLocaleString('default',{day: 'numeric', month: 'short'})
+    item.innerHTML = d.toLocaleString('default', { day: 'numeric', month: 'short' })
 })
 
 
 // js for slider
 const Slider = () =>{
-const fustalimage = document.querySelector('.fustal-box');
-const slidebutton = document.querySelectorAll('.slide-button');
-const maxScrollLeft = fustalimage.scrollWidth - fustalimage.clientWidth;
- 
-// console.log(maxScrollLeft)
+    const fustalimage = document.querySelector('.fustal-box');
+    const slidebutton = document.querySelectorAll('.slide-button');
 
-slidebutton.forEach(button =>{
-     button.addEventListener('click',()=>{
-          const direction = button.id === 'prev-slide'? -1 : 1;
-          const scrollAmt = fustalimage.clientWidth *direction;
-          fustalimage.scrollLeft = ({left: scrollAmt, behavior: 'smooth'});
-     });
-});
-const handleSlideButtons = () => {
-     slidebutton[0].style.display = fustalimage.scrollLeft <= 0 ? 'none' : 'block';
-     slidebutton[1].style.display = fustalimage.scrollLeft >= maxScrollLeft ? 'none' : 'block';
- };
- fustalimage.addEventListener('scroll', ()=>{
-     handleSlideButtons();
- });
-
+    // console.log(maxScrollLeft)
+    slidebutton.forEach(button => {
+        button.addEventListener('click', () => {
+            const direction = button.id === 'prev-slide' ? -1 : 1;
+            const scrollAmt = fustalimage.clientWidth * direction;
+            fustalimage.scroll({ left: fustalimage.scrollLeft + scrollAmt, behavior: 'smooth' });
+        });
+    });
+    const handleSlideButtons = () => {
+        const maxScrollLeft = fustalimage.scrollWidth - fustalimage.clientWidth;
+        slidebutton[0].style.display = fustalimage.scrollLeft <= 0 ? 'none' : 'block';
+        slidebutton[1].style.display = fustalimage.scrollLeft + 5 >= maxScrollLeft ? 'none' : 'block';
+    };
+    fustalimage.addEventListener('scroll', () => {
+        handleSlideButtons();
+    });
 }
-window.addEventListener('load',Slider);
-
-
-
- 
-
-
-
+// load slider
+Slider();
